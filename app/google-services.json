@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "349451787737",
+    "firebase_url": "https://arduino-9faab-default-rtdb.firebaseio.com",
+    "project_id": "arduino-9faab",
+    "storage_bucket": "arduino-9faab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349451787737:android:df8258c13c6572be3c0dc8",
+        "android_client_info": {
+          "package_name": "com.example.formationgroupe4oct"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349451787737-6o6gb6sdmnkd1fmqovhm8r2lulh0ui3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmxYaaABAHOAM6R_NyiM4e5QVHCZajfi0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "349451787737-6o6gb6sdmnkd1fmqovhm8r2lulh0ui3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
