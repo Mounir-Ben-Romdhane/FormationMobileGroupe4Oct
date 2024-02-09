@@ -11,10 +11,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.formationgroupe4oct.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -48,20 +52,15 @@ public class SignUpActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
 
         btnSignUp.setOnClickListener(v -> {
-            progressDialog.setMessage("Please wait...!");
-            progressDialog.show();
             if(validate()){
-                firebaseAuth.createUserWithEmailAndPassword(emailS, passwordS).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Toast.makeText(SignUpActivity.this, "Registration done !", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
-                            progressDialog.dismiss();
-                        }else {
-                            Toast.makeText(SignUpActivity.this, "Failed !", Toast.LENGTH_SHORT).show();
-                            progressDialog.dismiss();
-                        }
+                progressDialog.setMessage("Please wait...!");
+                progressDialog.show();
+                firebaseAuth.createUserWithEmailAndPassword(emailS, passwordS).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()){
+                        sendEmailVerification();
+                    }else {
+                        Toast.makeText(SignUpActivity.this, "Failed !", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
                     }
                 });
             }
@@ -71,6 +70,32 @@ public class SignUpActivity extends AppCompatActivity {
             startActivity(new Intent(SignUpActivity.this,SignInActivity.class));
             Toast.makeText(this, "go to Sign in activity ", Toast.LENGTH_SHORT).show();
         });
+    }
+
+    private void sendEmailVerification() {
+        FirebaseUser loggedUser = firebaseAuth.getCurrentUser();
+        if (loggedUser != null) {
+            loggedUser.sendEmailVerification().addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
+                    sendUserData();
+                    progressDialog.dismiss();
+                    Toast.makeText(this, "Registration done ! Please check your email address !", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(SignUpActivity.this,SignInActivity.class));
+                    finish();
+
+                }else {
+                    Toast.makeText(this, "Registration failed!!", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                }
+            });
+        }
+    }
+
+    private void sendUserData() {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference("Users");
+        User user = new User(fullNameS,emailS,cinS,phoneS,passwordS);
+        myRef.child(""+firebaseAuth.getUid()).setValue(user);
     }
 
     private boolean validate() {

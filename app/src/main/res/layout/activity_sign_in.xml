@@ -54,6 +54,7 @@
             android:layout_margin="15sp"/>
 
         <EditText
+            android:id="@+id/emailSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
@@ -75,12 +76,13 @@
             android:layout_margin="15sp"/>
 
         <EditText
+            android:id="@+id/passwordSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
             android:layout_marginEnd="10sp"
             android:hint="********"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
             android:textSize="14sp"
             android:textStyle="bold"
             android:drawableEnd="@drawable/ic_password"
@@ -108,6 +110,7 @@
             />
 
         <Button
+            android:id="@+id/btnSignIn"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="Sign in"
