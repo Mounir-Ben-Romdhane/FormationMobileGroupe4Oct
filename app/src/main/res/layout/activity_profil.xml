@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfilActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:background="@drawable/shape"
+        android:orientation="vertical"
+        android:padding="25sp">
+
+        <EditText
+            android:id="@+id/fullNameProfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="10sp"
+            android:drawableEnd="@drawable/ic_fullname"
+            android:drawableTint="@color/colorApp"
+            android:hint="Full Name"
+            android:inputType="text"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+
+        <EditText
+            android:id="@+id/emailProfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="10sp"
+            android:drawableEnd="@drawable/ic_email"
+            android:drawableTint="@color/colorApp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:focusableInTouchMode="false"
+            />
+
+        <EditText
+            android:id="@+id/cinProfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="10sp"
+            android:drawableEnd="@drawable/ic_cin"
+            android:drawableTint="@color/colorApp"
+            android:hint="CIN"
+            android:inputType="number"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/phoneProfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="10sp"
+            android:drawableEnd="@drawable/ic_phone"
+            android:drawableTint="@color/colorApp"
+            android:hint="Phone"
+            android:inputType="number"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+     </LinearLayout>
+
+        <Button
+            android:id="@+id/btnEditProfil"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="edit"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/colorApp"
+            app:cornerRadius="20sp"/>
+
+        <Button
+            android:id="@+id/btnLogOut"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="log out"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/colorApp"
+            app:cornerRadius="20sp"/>
+
+    </LinearLayout>
+
+</ScrollView>

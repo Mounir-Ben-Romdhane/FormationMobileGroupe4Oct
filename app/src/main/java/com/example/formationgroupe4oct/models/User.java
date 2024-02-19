@@ -1,17 +1,16 @@
 package com.example.formationgroupe4oct.models;
 
 public class User {
-    public String fullName, email, cin, phone, password;
+    public String fullName, email, cin, phone ;
 
     public User() {
     }
 
-    public User(String fullName, String email, String cin, String phone, String password) {
+    public User(String fullName, String email, String cin, String phone) {
         this.fullName = fullName;
         this.email = email;
         this.cin = cin;
         this.phone = phone;
-        this.password = password;
     }
 
     public String getFullName() {
@@ -46,11 +45,4 @@ public class User {
         this.phone = phone;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
