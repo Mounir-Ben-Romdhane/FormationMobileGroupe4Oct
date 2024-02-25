@@ -51,7 +51,7 @@ public class SignInActivity extends AppCompatActivity {
         boolean resCheckBox = preferences.getBoolean("remember", false);
 
         if(resCheckBox) {
-            startActivity(new Intent(SignInActivity.this, ProfilActivity.class));
+            startActivity(new Intent(SignInActivity.this, HomeActivity.class));
         }else {
             Toast.makeText(this, "Please sign in !", Toast.LENGTH_SHORT).show();
         }
@@ -113,7 +113,7 @@ public class SignInActivity extends AppCompatActivity {
         if (loggedUser != null) {
             if (loggedUser.isEmailVerified()){
                 finish();
-                startActivity(new Intent(SignInActivity.this,ProfilActivity.class));
+                startActivity(new Intent(SignInActivity.this,HomeActivity.class));
                 progressDialog.dismiss();
             }else {
                 Toast.makeText(this, "Please verify your email", Toast.LENGTH_SHORT).show();
