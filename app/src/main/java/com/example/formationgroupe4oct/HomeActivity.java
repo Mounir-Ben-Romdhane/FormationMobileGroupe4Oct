@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -74,6 +75,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     break;
                 case R.id.ticketElectrique:
                     drawerLayout.closeDrawer(GravityCompat.START);
+                    startActivity(new Intent(HomeActivity.this, TicketElectrique.class));
                     break;
                 case R.id.profile:
                     startActivity(new Intent(HomeActivity.this, ProfilActivity.class));
@@ -86,6 +88,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> devicesArrayList = new ArrayList<>();
         ArrayAdapter<String> devicesAdapter = new ArrayAdapter(this,R.layout.list_item ,devicesArrayList);
         listDevices.setAdapter(devicesAdapter);
+
 
         DatabaseReference devicesReference = firebaseDatabase.getReference().child("Devices");
 

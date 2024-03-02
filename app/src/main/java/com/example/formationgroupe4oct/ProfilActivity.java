@@ -87,6 +87,7 @@ public class ProfilActivity extends AppCompatActivity implements NavigationView.
                     break;
                 case R.id.ticketElectrique:
                     drawerLayout.closeDrawer(GravityCompat.START);
+                    startActivity(new Intent(ProfilActivity.this, TicketElectrique.class));
                     break;
                 case R.id.profile:
                     drawerLayout.closeDrawer(GravityCompat.START);
